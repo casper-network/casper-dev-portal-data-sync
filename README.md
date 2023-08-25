@@ -33,6 +33,12 @@ You can install Boto3 using pip:
 pip install boto3
 ```
 
+Alternatively, you can install it using the requirements.txt file:
+
+```bash
+pip install -r requirements.txt
+```
+
 ### mysqldump and MySQL client
 
 The scripts use mysqldump and the MySQL client to replicate the database. You can install them on Ubuntu using:
