@@ -1,0 +1,31 @@
+# K8S / Harness
+envName: <+env.name>
+appName: <+service.name>
+artifactImage: <+artifact.image> # from Harness Service Primary Artifact
+namespace: <+service.name>-<+env.name>
+
+# Application
+## AWS
+awsAccessKeyId: <+serviceVariables.awsAccessKeyId>
+awsSecretAccessKey: <+serviceVariables.awsSecretAccessKey>
+awsRegion: <+serviceVariables.awsRegion>
+awsProfile: <+serviceVariables.awsProfile>
+
+# Destination
+destDbHost: <+serviceVariables.destDbHost>
+destDbName: <+serviceVariables.destDbName>
+destDbPass: <+serviceVariables.destDbPass>
+destDbUser: <+serviceVariables.destDbUser>
+destS3Bucket: <+serviceVariables.destS3Bucket>
+destDbPort: <+serviceVariables.destDbPort>
+destCloudfrontId: <+serviceVariables.destCloudfrontId>
+
+# Source
+sourceDbHost: <+serviceVariables.sourceDbHost>
+sourceDbName: <+serviceVariables.sourceDbName>
+sourceDbPass: <+serviceVariables.sourceDbPass>
+sourceDbUser: <+serviceVariables.sourceDbUser>
+sourceDbPort: <+serviceVariables.sourceDbPort>
+
+# Other
+sourceExcludeTable: <+serviceVariables.sourceExcludeTable>
