@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 
 import boto3
-import sys
 import os
 
 def delete_all_objects(bucket, session):
