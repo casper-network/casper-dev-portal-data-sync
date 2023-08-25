@@ -4,7 +4,11 @@ set -e
 set -o pipefail
 
 echo "Loading environment variables..."
-. ./env.sh
+
+# Load environment variables from .env file if if exists
+if [ -f ./env.sh ]; then
+    . ./env.sh
+fi
 
 # Check if necessary environment variables are set
 for var in SOURCE_DB_HOST SOURCE_DB_USER SOURCE_DB_PASS SOURCE_DB_NAME SOURCE_EXCLUDE_TABLE DEST_DB_HOST DEST_DB_USER DEST_DB_PASS DEST_DB_NAME; do
