@@ -44,7 +44,7 @@ pip install -r requirements.txt
 The scripts use mysqldump and the MySQL client to replicate the database. You can install them on Ubuntu using:
 
 ```bash
-sudo apt-get install mysql-client
+sudo apt-get install mariadb-client
 ```
 
 ### pv (optional)
