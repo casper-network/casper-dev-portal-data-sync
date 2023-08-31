@@ -1,6 +1,31 @@
-# Directus Env Replication Utility
+# Casper Dev Portal Data Sync
 
-This utility is designed to synchronize the contents of an Amazon S3 source bucket to a target S3 bucket, invalidate a CloudFront distribution, and replicate a database. It is implemented in Python and Bash.
+This utility is designed to synchronize the contents of an Amazon S3 source bucket to a target S3 bucket, invalidate the target S3 bucket's CloudFront distribution, and sync two MariaDB database instances (Directus). It is implemented in Python and Bash.
+
+This is needed when changes have been done on the staging environment and need to be replicated to the production environment.
+
+It can be used in any environment where:
+
+- Directus is used to manage content
+- Directus assets are stored in an Amazon S3 bucket.
+- The Directus database needs to be replicated to a target database (env to env replication keeping the directus_users table intact).
+- The target database is used by a Directus instance that is configured to use the target S3 bucket.
+- The target S3 bucket is used by a CloudFront distribution.
+
+## DISCLAIMER
+
+This utility is provided "as-is" without any guarantees or warranties. Users are advised to exercise caution as the utility may not work in all environments and could potentially harm your data. The author(s) or the organization owning the repository disclaims all liability for any damage resulting from its use. By using this utility, you assume all risks and responsibilities and agree not to hold the author(s) or the organization liable for any damages incurred.
+
+## How it Works
+
+The utility consists of two scripts: [repl.sh] and [sync_buckets.py].
+The [repl.sh] script replicates the database from the source to the target, and then calls the [sync_buckets.py] script to synchronize the S3 buckets and invalidate the CloudFront distribution.
+
+The [sync_buckets.py] script deletes all objects in the target bucket, copies all objects from the source bucket to the target bucket, and invalidates the CloudFront distribution.
+
+**ATTENTION**: **The target bucket is completely emptied before the synchronization. This means that any objects that exist in the target bucket but not in the source bucket will be deleted. This is done to ensure that the target bucket is an exact copy of the source bucket.**
+
+**ATTENTION**: **The target database is completely overwritten except for the directus_users table. This means that any data that exists in the target database but not in the source database will be deleted. This is done to ensure that the target database is an exact copy of the source database.**
 
 ## Prerequisites
 
