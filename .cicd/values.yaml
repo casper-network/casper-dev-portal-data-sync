@@ -26,6 +26,7 @@ sourceDbName: <+serviceVariables.sourceDbName>
 sourceDbPass: <+serviceVariables.sourceDbPass>
 sourceDbUser: <+serviceVariables.sourceDbUser>
 sourceDbPort: <+serviceVariables.sourceDbPort>
+sourceS3Bucket: <+serviceVariables.sourceS3Bucket>
 
 # Other
 sourceExcludeTable: <+serviceVariables.sourceExcludeTable>

@@ -20,4 +20,5 @@ data:
   SOURCE_DB_PASS: {{.Values.sourceDbPass}}
   SOURCE_DB_USER: {{.Values.sourceDbUser}}
   SOURCE_DB_PORT: {{.Values.sourceDbPort}}
+  SOURCE_S3_BUCKET: {{.Values.sourceS3Bucket}}
   SOURCE_EXCLUDE_TABLE: {{.Values.sourceExcludeTable}}
