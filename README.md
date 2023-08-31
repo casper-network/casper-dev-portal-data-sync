@@ -18,10 +18,10 @@ This utility is provided "as-is" without any guarantees or warranties. Users are
 
 ## How it Works
 
-The utility consists of two scripts: [repl.sh] and [sync_buckets.py].
-The [repl.sh] script replicates the database from the source to the target, and then calls the [sync_buckets.py] script to synchronize the S3 buckets and invalidate the CloudFront distribution.
+The utility consists of two scripts: [repl.sh](repl.sh) and [sync_buckets.py](sync_buckets.py).
+The [repl.sh](repl.sh) script replicates the database from the source to the target, and then calls the [sync_buckets.py](sync_buckets.py) script to synchronize the S3 buckets and invalidate the CloudFront distribution.
 
-The [sync_buckets.py] script deletes all objects in the target bucket, copies all objects from the source bucket to the target bucket, and invalidates the CloudFront distribution.
+The [sync_buckets.py](sync_buckets.py) script deletes all objects in the target bucket, copies all objects from the source bucket to the target bucket, and invalidates the CloudFront distribution.
 
 **ATTENTION**: **The target bucket is completely emptied before the synchronization. This means that any objects that exist in the target bucket but not in the source bucket will be deleted. This is done to ensure that the target bucket is an exact copy of the source bucket.**
 
